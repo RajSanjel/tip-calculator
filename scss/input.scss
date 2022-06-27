@@ -1,0 +1,234 @@
+$strong-cyan: hsl(172, 67%, 45%);
+$very-dark-cyan: hsl(183, 100%, 15%);
+$dark-grayish-cyan: hsl(186, 14%, 43%);
+$grayish-cyan: hsl(184, 14%, 56%);
+$light-grayish-cyan: hsl(185, 41%, 84%);
+$very-light-grayish-cyan: hsl(189, 41%, 97%);
+$white: hsl(0, 0%, 100%);
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Space Mono';
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: $light-grayish-cyan;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.logo {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 60px;
+}
+
+::placeholder {
+    color: $dark-grayish-cyan
+}
+
+
+.calculator {
+    background-color: white;
+    width: 80%;
+    height: fit-content;
+    row-gap: 50px;
+    border-radius: 20px;
+    padding: 10%;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 300px;
+
+    @media (min-width:900px) {
+        width: 60%;
+        grid-auto-flow: column;
+        padding: 30px;
+        gap: 60px;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+}
+
+.bill_tip,
+.select_people {
+    background-image: url('../images/icon-dollar.svg');
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    background-color: $very-light-grayish-cyan;
+    border: none;
+    text-align: right;
+    font-size: 24px;
+    padding: 10px;
+    color: $very-dark-cyan;
+    width: 95%;
+    border-radius: 5px;
+}
+
+.select_people {
+    background-image: url('../images/icon-person.svg');
+}
+
+
+input:focus,
+.custom_tip:focus {
+    outline: none;
+    border: 1px solid $strong-cyan !important;
+}
+
+.custom_tip:hover,
+button:hover,
+input:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+p {
+    color: $dark-grayish-cyan;
+}
+
+.select_tip {
+    div {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+
+        @media (min-width:900px) {
+            grid-template-columns: repeat(3, minmax(0, 130px));
+        }
+    }
+
+    div button {
+        background-color: $very-dark-cyan;
+        border: none;
+        color: white;
+        font-size: 24px;
+        padding: 5px 0px;
+        border-radius: 5px;
+    }
+
+    .selected_tip {
+        background-color: $strong-cyan;
+        color: $very-dark-cyan !important;
+    }
+
+    .custom_tip {
+        font-size: 24px;
+        padding: 0 10px 0 0;
+        text-align: right;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background-color: $very-light-grayish-cyan;
+        color: $very-dark-cyan
+    }
+}
+
+.left {
+    display: grid;
+    gap: 30px;
+}
+
+.right {
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+
+.result {
+    background-color: $very-dark-cyan;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    height: 100%;
+    justify-content: center;
+    row-gap: 25px;
+
+    .per_person,
+    .amount {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 30%;
+
+
+        p {
+            font-size: 34px;
+            margin-top: 0%;
+            color: $strong-cyan;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            height: 1%;
+        }
+
+        h2 {
+            color: white;
+            font-size: 18px;
+        }
+
+        h4 {
+            color: $dark-grayish-cyan
+        }
+
+    }
+
+
+    .reset {
+        background-color: $strong-cyan;
+        color: $very-dark-cyan;
+        padding: 8px;
+        border-radius: 10px;
+        border: none;
+        font-size: 24px;
+    }
+
+    .reset:hover {
+        opacity: 1;
+        background-color: hsl(173, 95%, 75%);
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number_of_people {
+    div {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+    }
+
+    .error {
+        color: rgba(255, 51, 0, 0.748);
+    }
+
+    #error {
+        border: 1px solid rgba(255, 51, 0, 0.748);
+    }
+
+    .hidden {
+        display: none;
+    }
+}
